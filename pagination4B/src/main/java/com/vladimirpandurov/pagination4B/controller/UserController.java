@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import static java.util.Map.of;
 
@@ -25,7 +26,7 @@ public class UserController {
     public ResponseEntity<HttpResponse>getUsers(@RequestParam Optional<String> name,
                                                 @RequestParam Optional<Integer> page,
                                                 @RequestParam Optional<Integer> size) throws InterruptedException{
-
+        TimeUnit.SECONDS.sleep(1);
         return ResponseEntity.ok().body(
                 HttpResponse.builder()
                 .timeStamp(LocalDateTime.now().toString())
